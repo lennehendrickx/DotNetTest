@@ -43,8 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Birds\Bird.cs" />
+    <Compile Include="CustomNumber.cs" />
+    <Compile Include="EventEmitter.cs" />
+    <Compile Include="LanguageFeature.cs" />
+    <Compile Include="Birds\Pigeon.cs" />
+    <Compile Include="Sandbox.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Temperature\Celsius.cs" />
+    <Compile Include="Temperature\Fahrenheit.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

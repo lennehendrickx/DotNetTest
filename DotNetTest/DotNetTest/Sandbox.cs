@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DotNetTest
 {
-    class Program
+    class Sandbox
     {
         static void Main(string[] args)
         {

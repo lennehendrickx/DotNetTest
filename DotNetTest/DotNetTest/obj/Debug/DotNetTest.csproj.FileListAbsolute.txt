@@ -1,1 +1,6 @@
 C:\Files\Projects\DotNetTest\DotNetTest\DotNetTest\bin\Debug\DotNetTest.exe.config
+C:\Files\Projects\DotNetTest\DotNetTest\DotNetTest\bin\Debug\DotNetTest.exe
+C:\Files\Projects\DotNetTest\DotNetTest\DotNetTest\bin\Debug\DotNetTest.pdb
+C:\Files\Projects\DotNetTest\DotNetTest\DotNetTest\obj\Debug\DotNetTest.csprojResolveAssemblyReference.cache
+C:\Files\Projects\DotNetTest\DotNetTest\DotNetTest\obj\Debug\DotNetTest.exe
+C:\Files\Projects\DotNetTest\DotNetTest\DotNetTest\obj\Debug\DotNetTest.pdb
