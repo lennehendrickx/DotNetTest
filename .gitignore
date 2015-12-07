@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/DotNetTest/DotNetTest/bin/Debug
+/DotNetTest/DotNetTest/obj/Debug
+/DotNetTest/DotNetUnitTest/bin/Debug
+/DotNetTest/DotNetUnitTest/obj/Debug
