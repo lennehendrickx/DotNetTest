@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Birds\Bird.cs" />
+    <Compile Include="Struct.cs" />
     <Compile Include="CustomNumber.cs" />
     <Compile Include="EventEmitter.cs" />
     <Compile Include="LanguageFeature.cs" />

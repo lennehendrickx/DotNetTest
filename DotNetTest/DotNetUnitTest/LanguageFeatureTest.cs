@@ -137,5 +137,58 @@ namespace DotNetUnitTest
             Assert.IsTrue(new CustomNumber(2) ==  new CustomNumber(1) + new CustomNumber(1));
             Assert.IsFalse(new CustomNumber(2) !=  new CustomNumber(1) + new CustomNumber(1));
         }
+
+        [TestMethod]
+        public void Struct()
+        {
+            //A struct type is a value type that is typically used to encapsulate small groups of related variables, such as the coordinates of a rectangle or the characteristics of an item in an inventory.The following example shows a simple struct declaration
+            //https://msdn.microsoft.com/nl-be/library/ah19swz4.aspx
+            var testStruct = new TestStruct();
+            testStruct.AProperty = "TestValue";
+
+            Assert.AreEqual("TestValue", testStruct.AProperty);
+        }
+
+        [TestMethod]
+        public void ObjectInitializer()
+        {
+            //Object initializers let you assign values to any accessible fields or properties of an object at creation time without having to invoke a constructor followed by lines of assignment statements. 
+            //https://msdn.microsoft.com/nl-be/library/bb384062.aspx
+            var testStruct = new TestStruct { AProperty = "TestValue" };
+
+            Assert.AreEqual("TestValue", testStruct.AProperty);
+        }
+
+        [TestMethod]
+        public void AnonymousObjectInitializer()
+        {
+            //https://msdn.microsoft.com/en-us/library/bb397696.aspx
+            var pet = new { Age = 10, Name = "Fluffy" };
+            // pet2 has same properties and same property order --> same type as pet
+            var pet2 = new { Age = 20, Name = "Fluffiest" };
+            // pet3 has same properties but different property order --> different type from pet
+            var pet3 = new { Name = "Fluffiest", Age = 20 };
+
+            Assert.AreEqual(10, pet.Age);
+            Assert.AreEqual("Fluffy", pet.Name);
+            Assert.AreNotEqual(pet3.GetType(), pet.GetType());
+        }
+
+        [TestMethod]
+        public void CollectionInitializer()
+        {
+            var digits = new List<int> { 0 + 1, 12 % 3, (int) new Celsius(20).Degrees };
+
+            CollectionAssert.AreEqual(new List<int> {1, 0, 20}, digits);
+        }
+
+        [TestMethod]
+        public void At()
+        {
+            //use @ to be able to use reserved keywords as a variable name
+            var @const = 1;
+
+            Assert.AreEqual(1, @const);
+        }
     }
 }
