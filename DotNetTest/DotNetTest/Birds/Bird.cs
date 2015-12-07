@@ -7,10 +7,9 @@
 
         public Bird()
         {
-            this.Name = "Rudy";
         }
 
-        string Name { get; }
+        private string Name { get; } = "Rudy";
 
         public Bird(string name)
         {

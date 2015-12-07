@@ -190,5 +190,89 @@ namespace DotNetUnitTest
 
             Assert.AreEqual(1, @const);
         }
+
+        [TestMethod]
+        public void Ref()
+        {
+            //https://msdn.microsoft.com/en-us/library/14akc2c7.aspx
+
+            // value type
+            var number = 10;
+            CustomNumber.AddWithRef(ref number, 5);
+            Assert.AreEqual(15, number);
+            CustomNumber.Add(number, 5);
+            Assert.AreEqual(15, number);
+
+            // reference type
+            var customNumber = new CustomNumber(10);
+            CustomNumber.AddWithRef(ref customNumber, 5);
+            Assert.AreEqual(15, customNumber);
+            CustomNumber.Add(customNumber, 5);
+            Assert.AreEqual(15, customNumber);
+        }
+
+        [TestMethod]
+        public void Indexer()
+        {
+            var indexerExample = new IndexerExample<int> {[0] = 10};
+
+            //is the object initializer for
+            //var indexerExample = new IndexerExample<int>();
+            //indexerExample[0] = 10;
+
+            Assert.AreEqual(10, indexerExample[0]);
+        }
+
+        [TestMethod]
+        public void PartialClass()
+        {
+            var employee = new Employee();
+            employee.DoWork();
+            employee.GoToLunch(); // method is defined in a partial class
+        }
+
+        [TestMethod]
+        public void PartialMethod()
+        {
+            var employee = new Employee();
+            employee.DoWork(); // look inside this method to see partial methods at work;
+        }
+
+        [TestMethod]
+        public void NullCoalescingOperator()
+        {
+            List<Bird> birds = null;
+            Assert.AreEqual(0, birds?.Count ?? 0);
+        }
+
+
+        // C# 6.0 language features --> https://github.com/dotnet/roslyn/wiki/New-Language-Features-in-C%23-6
+
+        [TestMethod]
+        public void ExpressionBodiedFunctionMembers()
+        {
+            Assert.AreEqual(10, CustomNumber.AddDefinedWithALamba(6, 4));
+        }
+
+        [TestMethod]
+        public void NullConditionalOperators()
+        {
+            Bird bird = null;
+            Assert.IsNull(bird?.GetType());
+
+            Bird pigeon = new Pigeon();
+            Assert.AreEqual(typeof (Pigeon), pigeon?.GetType());
+        }
+
+        [TestMethod]
+        public void StringInterpolation()
+        {
+            var p = new {Name = "Lenne", Age = 31};
+
+            //old style String.Format("{0} is {1} year{{s}} old", p.Name, p.Age);
+            Assert.AreEqual("Lenne is 31 years old", $"{p.Name} is {p.Age} years old");
+        }
+
+        
     }
 }

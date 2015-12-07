@@ -41,5 +41,32 @@
         {
             return !Equals(left, right);
         }
+
+        public static void AddWithRef(ref int number, int numberToAdd)
+        {
+            number = number + numberToAdd;
+        }
+
+        public static void Add(int number, int numberToAdd)
+        {
+            number = number + numberToAdd;
+        }
+
+        public static void AddWithRef(ref CustomNumber number, int numberToAdd)
+        {
+            number = new CustomNumber(number.Number + numberToAdd);
+        }
+
+        public static void Add(CustomNumber number, int numberToAdd)
+        {
+            number = new CustomNumber(number.Number + numberToAdd);
+        }
+
+        public static implicit operator int(CustomNumber number)
+        {
+            return number.Number;
+        }
+
+        public static int AddDefinedWithALamba(int number, int anotherNumber) => number + anotherNumber;
     }
 }
