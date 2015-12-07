@@ -5,6 +5,14 @@
         public const string PigeonSound = "roekoe";
         public const string PigeonColor = "Gray";
 
+        public Pigeon()
+        {
+        }
+
+        public Pigeon(string name) : base(name)
+        {
+        }
+
         public new string MakeSound()
         {
             return PigeonSound;

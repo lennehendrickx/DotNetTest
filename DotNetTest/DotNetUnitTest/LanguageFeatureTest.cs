@@ -101,7 +101,33 @@ namespace DotNetUnitTest
         [TestMethod]
         public void In()
         {
-            // todo: with predicate as example?
+            // predicate is a delegate with an in parameter
+            Predicate<Pigeon> predicatePigeon = (pigeon) => pigeon.GetColor() == Pigeon.PigeonColor;
+            Predicate<Bird> predicateBird = (bird) => bird.GetColor() == Bird.BirdColor;
+
+            // in is contravariant (? super T in java) --> Contravariance enables you to use a less derived type than that specified by the generic parameter
+            // https://msdn.microsoft.com/en-us/library/dd469484.aspx
+            predicatePigeon = predicateBird;
+
+            Assert.AreEqual(predicatePigeon, predicateBird);
+            // in is not covariant --> this is a compilation error
+            //predicateObject = predicateString;
+        }
+
+        [TestMethod]
+        public void Out()
+        {
+            // predicate is a delegate with an in parameter
+            Func<string, Pigeon> pigeonFactory = (name) => new Pigeon(name);
+            Func<string, Bird> birdFactory = (name) => new Bird(name);
+
+            // out is covariant (? extends T in java) --> Covariance enables you to use a more derived type than that specified by the generic parameter. 
+            // https://msdn.microsoft.com/en-us/library/dd469487.aspx
+            birdFactory = pigeonFactory;
+
+            Assert.AreEqual(birdFactory, pigeonFactory);
+            // in is not contravariant --> this is a compilation error
+            //pigeonFactory = birdFactory;
         }
 
         [TestMethod]
